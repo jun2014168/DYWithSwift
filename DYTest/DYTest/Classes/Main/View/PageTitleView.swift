@@ -31,7 +31,8 @@ class PageTitleView: UIView {
     private lazy var titleLabels = [UILabel]()
     
     private var titles : [String]
-    
+    // 当前的label的下标
+    private var currentIndex : Int = 0
     // MARK: -自定义构造函数
     init(frame: CGRect,titles: [String]) {
         self.titles = titles
@@ -78,6 +79,11 @@ class PageTitleView: UIView {
             scrollView.addSubview(label)
             
             titleLabels.append(label)
+            
+            // 添加监听事件
+            label.isUserInteractionEnabled = true
+            let tap  = UITapGestureRecognizer(target: self, action: #selector(titleLabelClick(tap:)))
+            label.addGestureRecognizer(tap)
         }
     }
     private func setupBottomLineAndScrollLine() {
@@ -94,4 +100,28 @@ class PageTitleView: UIView {
         scrollView.addSubview(scrollLine)
         scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - kScrollLineH, width: firstLabel.frame.width, height: kScrollLineH)
     }
+    
+    // 事件监听最好加上 @objc
+    @objc func titleLabelClick(tap: UITapGestureRecognizer) {
+        // 获取当前label的下标值
+        guard let currentLabel = tap.view as? UILabel else { return }
+        
+        // 获取之前的label
+        let oldLabel = titleLabels[currentIndex]
+        
+        // 切换文字颜色
+        currentLabel.textColor = UIColor.orange
+        oldLabel.textColor = UIColor.darkGray
+        
+        // 保存当前label的下标
+        currentIndex = currentLabel.tag
+        
+        // 滚动条位置
+        let scrollLineX = CGFloat(currentIndex) * scrollLine.frame.width
+        UIView.animate(withDuration: 0.15, animations: {
+            self.scrollLine.frame.origin.x = scrollLineX
+        })
+        
+    }
+    
 }

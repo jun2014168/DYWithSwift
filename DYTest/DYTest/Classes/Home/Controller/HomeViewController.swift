@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         return titleView
     }()
     
-    private lazy var pageContentView: PageContentView = {
+    private lazy var pageContentView: PageContentView = { [weak self] in
         
         let viewH = kScreenH - kStatueBarH - kNavigationBarH - kTitleViewH
         let frame = CGRect(x: 0, y: kStatueBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: viewH)
@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
             childVC.append(vc)
             
         }
-        let contentView = PageContentView(frame: frame, childVC: childVC, parentVC: self)
+        let contentView = PageContentView(frame: frame, childVC: childVC, parentVC: self!)
         return contentView
     }()
     
