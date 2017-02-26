@@ -28,7 +28,7 @@ class PageTitleView: UIView {
         
     }()
     
-    private lazy var titleLabels : [UILabel]
+    private lazy var titleLabels = [UILabel]()
     
     private var titles : [String]
     
@@ -50,6 +50,7 @@ class PageTitleView: UIView {
     private func setupUI() {
         // 添加scrollView
         addSubview(scrollView)
+        scrollView.frame = bounds
         
         // 添加title对应的label
         setupTitleLables()
