@@ -11,6 +11,10 @@ import UIKit
 
 let kStatueBarH : CGFloat = 20
 let kNavigationBarH : CGFloat = 44
+let kTabBarH : CGFloat = 44
 
 let kScreenW : CGFloat = UIScreen.main.bounds.width
 let kScreenH : CGFloat = UIScreen.main.bounds.height
+
+// 背脊色
+let kBgColor : UIColor = UIColor(r: 234, g: 234, b: 234)
