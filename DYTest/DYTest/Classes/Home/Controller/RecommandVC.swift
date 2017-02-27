@@ -35,7 +35,9 @@ class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         // 注册默认cell
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellID)
         // 注册Headviewcell
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeadViewID)
+        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeadViewID)
+        
+        collectionView.backgroundColor = kBgColor
         return collectionView
         
     }()
@@ -47,7 +49,7 @@ class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
     }
     // MARK: -设置UI
     private func setupUI() {
-        
+        view.addSubview(collectionView)
     }
 
     // MARK: -
@@ -60,7 +62,6 @@ class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath)
-        
         
         
         return cell
