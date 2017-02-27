@@ -9,15 +9,15 @@
 import UIKit
 
 private let kTitleViewH : CGFloat = 40
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,PageTitleViewDelegate,PageContentViewDelegate {
 
     // 懒加载titleView
-    private lazy var pageTitleView : PageTitleView = {
+    private lazy var pageTitleView : PageTitleView = { [weak self] in
        
         let frame = CGRect(x: 0, y:kStatueBarH + kNavigationBarH, width: kScreenW, height: kTitleViewH)
         let titles = ["推荐","游戏","娱乐","趣玩"]
         let titleView = PageTitleView(frame: frame, titles: titles)
-        
+        titleView.delegate = self
         return titleView
     }()
     
@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
             
         }
         let contentView = PageContentView(frame: frame, childVC: childVC, parentVC: self!)
+        contentView.delegate = self
         return contentView
     }()
     
@@ -54,9 +55,17 @@ class HomeViewController: UIViewController {
         
         
     }
-    
-
+   
+    // MARK: -PageTitleViewDelegate
+    func pageTitleView(titleView: PageTitleView, selectedIndex index: Int) {
+        pageContentView.setCurrentIndex(index: index)
+    }
+    // MARK: -PageContentViewDelegate
+    func pageContentView(contentView: PageContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        pageTitleView.setTitleWithProgress(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    }
 }
+
 private extension HomeViewController {
     
     func setupUI() {
@@ -82,3 +91,4 @@ private extension HomeViewController {
 
     }
 }
+
