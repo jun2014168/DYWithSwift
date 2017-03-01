@@ -12,12 +12,14 @@ import UIKit
 private let kItemMargin : CGFloat = 10
 private let kItemW : CGFloat = (kScreenW - 3 * kItemMargin) / 2
 private let kItemH : CGFloat = kItemW * 3 / 4
+private let kPrettyItemH : CGFloat = kItemW * 4 / 3
 
 private let kNormalCellID = "kNormalCellID"
+private let kPrettyCellID = "kPrettyCellID"
 private let kHeadViewID = "kHeadViewID"
 private let kHeadViewH : CGFloat = 50
 
-class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
     // MARK: -懒加载属性
     private lazy var collectionView : UICollectionView = { [unowned self] in
@@ -31,13 +33,17 @@ class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
         // 注册默认cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellID)
+        collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
+        
+        collectionView.register(UINib(nibName: "CollectionPrettyCell", bundle: nil), forCellWithReuseIdentifier: kPrettyCellID)
+        
         // 注册Headviewcell
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeadViewID)
         
-        collectionView.backgroundColor = kBgColor
+        collectionView.backgroundColor = UIColor.white
         return collectionView
         
     }()
@@ -46,6 +52,7 @@ class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         super.viewDidLoad()
         // 设置UI
         setupUI()
+        
     }
     // MARK: -设置UI
     private func setupUI() {
@@ -61,9 +68,12 @@ class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         return (section == 0) ? 8 : 4
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath)
-        
-        
+        var cell : UICollectionViewCell!
+        if indexPath.section == 1 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath)
+        }else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath)
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -73,4 +83,11 @@ class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         return headView
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 1 {
+            
+            return CGSize(width: kItemW, height: kPrettyItemH)
+        }
+        return CGSize(width: kItemW, height: kItemH)
+    }
 }
