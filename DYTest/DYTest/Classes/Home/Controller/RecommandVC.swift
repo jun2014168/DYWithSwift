@@ -86,18 +86,16 @@ extension RecommandVC : UICollectionViewDataSource,UICollectionViewDelegate,UICo
         let group = recommandViewModel.anchroGroup[indexPath.section]
         let anchro = group.anchros[indexPath.item]
         
+        var cell = CollectionBaseCell()
     
         if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
-            cell.anchro = anchro
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
             
-            return cell
         }else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
-            
-            cell.anchro = anchro
-            return cell
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
         }
+        cell.anchro = anchro
+        return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headView  = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeadViewID, for: indexPath) as! CollectionHeaderView

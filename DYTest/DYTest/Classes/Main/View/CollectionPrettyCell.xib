@@ -49,40 +49,40 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZg-pP-R1H">
-                        <rect key="frame" x="112" y="5" width="28.5" height="20"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="0.79914918664383561" colorSpace="calibratedWhite"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tB-S4-Qd1">
+                        <rect key="frame" x="61" y="0.0" width="80" height="20"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="0.79914918660000001" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="hSd-9X-62s"/>
+                            <constraint firstAttribute="height" constant="20" id="eef-wj-hsj"/>
+                            <constraint firstAttribute="width" constant="80" id="iXt-Ai-jre"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <state key="normal" title="1万在线"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="dVD-m4-SPR" firstAttribute="top" secondItem="xFB-VH-fTZ" secondAttribute="bottom" constant="5" id="0TL-4D-cnX"/>
-                <constraint firstItem="EZg-pP-R1H" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="6GR-BX-SBV"/>
                 <constraint firstAttribute="trailing" secondItem="xFB-VH-fTZ" secondAttribute="trailing" id="LGw-D7-Nxy"/>
                 <constraint firstItem="dVD-m4-SPR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Pud-5D-3Ks"/>
                 <constraint firstItem="V1k-jc-eRP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UiL-Nl-x5G"/>
                 <constraint firstAttribute="bottom" secondItem="V1k-jc-eRP" secondAttribute="bottom" constant="5" id="VZt-vu-QED"/>
+                <constraint firstAttribute="trailing" secondItem="6tB-S4-Qd1" secondAttribute="trailing" constant="5" id="Via-c9-0ls"/>
                 <constraint firstItem="xFB-VH-fTZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aFg-3j-ikw"/>
                 <constraint firstItem="V1k-jc-eRP" firstAttribute="centerY" secondItem="ju7-N8-hAp" secondAttribute="centerY" id="bt5-NV-Ufl"/>
+                <constraint firstItem="6tB-S4-Qd1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eGF-kj-aiB"/>
                 <constraint firstItem="xFB-VH-fTZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eKM-hT-b4J"/>
                 <constraint firstItem="V1k-jc-eRP" firstAttribute="top" secondItem="dVD-m4-SPR" secondAttribute="bottom" constant="5" id="gbQ-wf-Cj8"/>
                 <constraint firstAttribute="trailing" secondItem="ju7-N8-hAp" secondAttribute="trailing" constant="5" id="mOB-hP-mD0"/>
                 <constraint firstItem="ju7-N8-hAp" firstAttribute="leading" secondItem="V1k-jc-eRP" secondAttribute="trailing" constant="5" id="mT9-Kp-cPp"/>
-                <constraint firstAttribute="trailing" secondItem="EZg-pP-R1H" secondAttribute="trailing" constant="5" id="n5O-6n-b8o"/>
                 <constraint firstAttribute="trailing" secondItem="dVD-m4-SPR" secondAttribute="trailing" constant="5" id="quG-m7-TLC"/>
             </constraints>
             <size key="customSize" width="146" height="166"/>
             <connections>
                 <outlet property="anchroImageView" destination="xFB-VH-fTZ" id="5Vd-OU-1Nr"/>
                 <outlet property="cityL" destination="ju7-N8-hAp" id="prO-Z1-IZ5"/>
-                <outlet property="onlineL" destination="EZg-pP-R1H" id="gEM-s5-059"/>
+                <outlet property="onlineBtn" destination="6tB-S4-Qd1" id="fQ0-Rr-kwO"/>
                 <outlet property="titleL" destination="dVD-m4-SPR" id="CpK-h2-eMy"/>
             </connections>
             <point key="canvasLocation" x="-34" y="-89"/>

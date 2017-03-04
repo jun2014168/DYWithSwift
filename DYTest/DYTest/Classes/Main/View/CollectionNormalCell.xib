@@ -73,7 +73,7 @@
             </constraints>
             <size key="customSize" width="181" height="105"/>
             <connections>
-                <outlet property="bgImageV" destination="5DB-Rw-gAT" id="puq-Iu-eOu"/>
+                <outlet property="anchroImageView" destination="5DB-Rw-gAT" id="y1X-Nx-Nsc"/>
                 <outlet property="nameL" destination="c7h-fF-q4F" id="dud-um-aDq"/>
                 <outlet property="onlineBtn" destination="0GY-yM-W36" id="uNS-5z-Mns"/>
                 <outlet property="titleL" destination="eug-hx-dBH" id="Vya-OF-9N7"/>
