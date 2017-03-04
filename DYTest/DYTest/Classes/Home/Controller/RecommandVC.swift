@@ -19,9 +19,11 @@ private let kPrettyCellID = "kPrettyCellID"
 private let kHeadViewID = "kHeadViewID"
 private let kHeadViewH : CGFloat = 50
 
-class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class RecommandVC: UIViewController {
 
     // MARK: -懒加载属性
+    lazy var recommandViewModel : RecommandViewModel = RecommandViewModel()
+    
     private lazy var collectionView : UICollectionView = { [unowned self] in
         // 布局
         let layout = UICollectionViewFlowLayout()
@@ -53,36 +55,61 @@ class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         // 设置UI
         setupUI()
         
+        // 加载数据
+        loadData()
     }
     // MARK: -设置UI
     private func setupUI() {
         view.addSubview(collectionView)
     }
+    private func loadData(){
+        recommandViewModel.requestData { 
+            self.collectionView.reloadData()
+        }
+    }
 
-    // MARK: -
+    
+}
+extension RecommandVC : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     // MARK: -UICollectionViewDataSource,UICollectionViewDelegate
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 12
+        return recommandViewModel.anchroGroup.count
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (section == 0) ? 8 : 4
+        
+        let group = recommandViewModel.anchroGroup[section]
+        return group.anchros.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell : UICollectionViewCell!
+        
+        // 取出模型
+        let group = recommandViewModel.anchroGroup[indexPath.section]
+        let anchro = group.anchros[indexPath.item]
+        
+    
         if indexPath.section == 1 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
+            cell.anchro = anchro
+            
+            return cell
         }else {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
+            
+            cell.anchro = anchro
+            return cell
         }
-        return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeadViewID, for: indexPath)
+        let headView  = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeadViewID, for: indexPath) as! CollectionHeaderView
         
+        // 取出模型
+        let group = recommandViewModel.anchroGroup[indexPath.section]
+        
+        headView.group = group
         
         return headView
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 1 {
             
@@ -90,4 +117,5 @@ class RecommandVC: UIViewController,UICollectionViewDataSource,UICollectionViewD
         }
         return CGSize(width: kItemW, height: kItemH)
     }
+
 }
