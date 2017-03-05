@@ -9,12 +9,16 @@
 import UIKit
 
 class RecommandViewModel {
-
-    var prettyData : AnchroGroup = AnchroGroup()
-    var bigData : AnchroGroup = AnchroGroup()
+    
+    // 轮播数据
+    lazy var cycleModel : [CycleModel] = [CycleModel]()
+    
     
     /// 0 1 2-12组数据
     lazy var anchroGroup : [AnchroGroup] = [AnchroGroup]()
+    var prettyData : AnchroGroup = AnchroGroup()
+    var bigData : AnchroGroup = AnchroGroup()
+    
 }
 
 extension RecommandViewModel {
@@ -99,5 +103,26 @@ extension RecommandViewModel {
             finshCallBack()
         }
         
+    }
+    
+    // 请求轮播数据
+    func requestCycleData(finshCallBack : @escaping ()->()) {
+        NetworkTool.requestData(type: .GET, url: "http://capi.douyucdn.cn/api/v1/slide/6", parameters: ["version":"2.4"], finishedCallback: {
+            (result) in
+            
+            // 将result 转成字典模型
+            guard let resultDict = result as? [String : NSObject] else {return}
+            
+            // 根据data的key 获取数组
+            guard let dataArr = resultDict["data"] as? [[String : NSObject]] else {return}
+            
+            // 遍历数组
+            for dict in dataArr {
+                self.cycleModel.append(CycleModel(dict: dict))
+            }
+            
+            finshCallBack()
+        })
+
     }
 }

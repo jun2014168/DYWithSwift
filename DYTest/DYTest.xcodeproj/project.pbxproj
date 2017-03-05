@@ -37,6 +37,11 @@
 		7BE63B801E226F8D006B68D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BE63B7E1E226F8D006B68D8 /* Main.storyboard */; };
 		7BE63B851E226F8F006B68D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BE63B841E226F8F006B68D8 /* Assets.xcassets */; };
 		7BED303D1E6B222200A4EBF8 /* CollectionBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BED303C1E6B222200A4EBF8 /* CollectionBaseCell.swift */; };
+		7BED303F1E6BACB500A4EBF8 /* RecommandCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BED303E1E6BACB500A4EBF8 /* RecommandCycleView.swift */; };
+		7BED30411E6BACD600A4EBF8 /* RecommandCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BED30401E6BACD600A4EBF8 /* RecommandCycleView.xib */; };
+		7BED30431E6C37EF00A4EBF8 /* CycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BED30421E6C37EF00A4EBF8 /* CycleModel.swift */; };
+		7BED30461E6C442700A4EBF8 /* CycleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BED30441E6C442700A4EBF8 /* CycleCell.swift */; };
+		7BED30471E6C442700A4EBF8 /* CycleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BED30451E6C442700A4EBF8 /* CycleCell.xib */; };
 		B67AA10FB29F907CA504273B /* Pods_DYTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B63B6C476A17C5D14A3887 /* Pods_DYTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +80,11 @@
 		7BE63B841E226F8F006B68D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BE63B891E226F90006B68D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BED303C1E6B222200A4EBF8 /* CollectionBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionBaseCell.swift; sourceTree = "<group>"; };
+		7BED303E1E6BACB500A4EBF8 /* RecommandCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommandCycleView.swift; sourceTree = "<group>"; };
+		7BED30401E6BACD600A4EBF8 /* RecommandCycleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommandCycleView.xib; sourceTree = "<group>"; };
+		7BED30421E6C37EF00A4EBF8 /* CycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleModel.swift; sourceTree = "<group>"; };
+		7BED30441E6C442700A4EBF8 /* CycleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleCell.swift; sourceTree = "<group>"; };
+		7BED30451E6C442700A4EBF8 /* CycleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CycleCell.xib; sourceTree = "<group>"; };
 		F88325063ABE28390AC49A0F /* Pods-DYTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYTest/Pods-DYTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +204,7 @@
 		7B6033011E62BD1800EF76AB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7BED30421E6C37EF00A4EBF8 /* CycleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +214,10 @@
 			children = (
 				7B6033201E6474AB00EF76AB /* CollectionHeaderView.swift */,
 				7B6033211E6474AB00EF76AB /* CollectionHeaderView.xib */,
+				7BED303E1E6BACB500A4EBF8 /* RecommandCycleView.swift */,
+				7BED30401E6BACD600A4EBF8 /* RecommandCycleView.xib */,
+				7BED30441E6C442700A4EBF8 /* CycleCell.swift */,
+				7BED30451E6C442700A4EBF8 /* CycleCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -405,11 +420,13 @@
 				7B6032E91E62A89700EF76AB /* Home.storyboard in Resources */,
 				7BE63B851E226F8F006B68D8 /* Assets.xcassets in Resources */,
 				7B60332B1E65B8C200EF76AB /* CollectionNormalCell.xib in Resources */,
+				7BED30471E6C442700A4EBF8 /* CycleCell.xib in Resources */,
 				7B6032EF1E62A8F300EF76AB /* Profile.storyboard in Resources */,
 				7B6033231E6474AB00EF76AB /* CollectionHeaderView.xib in Resources */,
 				7B6032F21E62A90400EF76AB /* Mine.storyboard in Resources */,
 				7B6032EC1E62A8D700EF76AB /* Live.storyboard in Resources */,
 				7B60332F1E65BE8E00EF76AB /* CollectionPrettyCell.xib in Resources */,
+				7BED30411E6BACD600A4EBF8 /* RecommandCycleView.xib in Resources */,
 				7BE63B801E226F8D006B68D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +496,8 @@
 				7B1FFB121E68445B001E68D9 /* RecommandViewModel.swift in Sources */,
 				7B6032FC1E62AA1E00EF76AB /* MineViewController.swift in Sources */,
 				7B6033121E62BDAF00EF76AB /* ProfileViewController.swift in Sources */,
+				7BED30461E6C442700A4EBF8 /* CycleCell.swift in Sources */,
+				7BED303F1E6BACB500A4EBF8 /* RecommandCycleView.swift in Sources */,
 				7B1FFB141E684C33001E68D9 /* NSDate-Extension.swift in Sources */,
 				7B6033221E6474AB00EF76AB /* CollectionHeaderView.swift in Sources */,
 				7BED303D1E6B222200A4EBF8 /* CollectionBaseCell.swift in Sources */,
@@ -489,6 +508,7 @@
 				7B60330D1E62BD9B00EF76AB /* MainViewController.swift in Sources */,
 				7B1FFB161E684FB5001E68D9 /* AnchroGroup.swift in Sources */,
 				7B6033191E62C44300EF76AB /* Common.swift in Sources */,
+				7BED30431E6C37EF00A4EBF8 /* CycleModel.swift in Sources */,
 				7B6033151E62BDC500EF76AB /* UIBarButtonItem-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
