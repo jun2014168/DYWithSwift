@@ -18,3 +18,5 @@ let kScreenH : CGFloat = UIScreen.main.bounds.height
 
 // 背脊色
 let kBgColor : UIColor = UIColor(r: 234, g: 234, b: 234)
+// 随机色
+let kRandomColor : UIColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))

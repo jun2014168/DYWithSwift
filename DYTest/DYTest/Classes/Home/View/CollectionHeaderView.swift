@@ -10,9 +10,32 @@ import UIKit
 
 class CollectionHeaderView: UICollectionReusableView {
 
+    @IBOutlet weak var groupIcon: UIImageView!
+    
+    @IBOutlet weak var groupName: UILabel!
+    
+    
+    var group : AnchroGroup? {
+        didSet{
+            groupIcon.image = UIImage(named: group?.icon_name ?? "home_header_normal")
+            
+            groupName.text = group?.tag_name
+        
+        }
+    
+    }
+    
+    
+    
+    /// 更多
+    @IBAction func moreBtnClick() {
+        
+        
+        
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
 }

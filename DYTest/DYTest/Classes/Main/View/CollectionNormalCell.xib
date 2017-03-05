@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16E154a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E154a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -72,6 +72,12 @@
                 <constraint firstItem="0GY-yM-W36" firstAttribute="bottom" secondItem="5DB-Rw-gAT" secondAttribute="bottom" constant="-5" id="sch-T6-dMs"/>
             </constraints>
             <size key="customSize" width="181" height="105"/>
+            <connections>
+                <outlet property="anchroImageView" destination="5DB-Rw-gAT" id="y1X-Nx-Nsc"/>
+                <outlet property="nameL" destination="c7h-fF-q4F" id="dud-um-aDq"/>
+                <outlet property="onlineBtn" destination="0GY-yM-W36" id="uNS-5z-Mns"/>
+                <outlet property="titleL" destination="eug-hx-dBH" id="Vya-OF-9N7"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="-150.5"/>
         </collectionViewCell>
     </objects>

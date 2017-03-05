@@ -16,6 +16,9 @@ private let ContentCellID = "contentCell"
 
 class PageContentView: UIView,UICollectionViewDataSource,UICollectionViewDelegate {
     
+    // MARK: -定义属性
+    private var childVC : [UIViewController]
+    private weak var parentVC : UIViewController?
     weak var delegate : PageContentViewDelegate?
     
     private var startOffsetX : CGFloat = 0
@@ -43,11 +46,6 @@ class PageContentView: UIView,UICollectionViewDataSource,UICollectionViewDelegat
     
     }()
     
-    
-    // MARK: -定义属性
-    private var childVC : [UIViewController]
-    private weak var parentVC : UIViewController?
-    
     // MARK: -自定义构造函数
     init(frame: CGRect, childVC: [UIViewController], parentVC: UIViewController) {
         self.childVC = childVC
@@ -63,7 +61,6 @@ class PageContentView: UIView,UICollectionViewDataSource,UICollectionViewDelegat
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
     private func setupUI() {
         // 将所有子控制器设置到父控制器中

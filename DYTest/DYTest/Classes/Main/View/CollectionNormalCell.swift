@@ -8,8 +8,20 @@
 
 import UIKit
 
-class CollectionNormalCell: UICollectionViewCell {
+class CollectionNormalCell: CollectionBaseCell {
 
+    @IBOutlet weak var nameL: UILabel!
+    
+    
+    override var anchro:AnchroModel? {
+        didSet{
+            
+            super.anchro = anchro
+            nameL.text = anchro?.nickname
+            
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
