@@ -9,6 +9,7 @@
 import UIKit
 
 private let kCycleViewH : CGFloat = kScreenW * 3 / 8
+private let kGameViewH : CGFloat = 90
 
 private let kItemMargin : CGFloat = 10
 private let kItemW : CGFloat = (kScreenW - 3 * kItemMargin) / 2
@@ -51,13 +52,19 @@ class RecommandVC: UIViewController {
         return collectionView
         
     }()
+    
+    /// 广告滚动视图
     private lazy var cycleView : RecommandCycleView = {
-        
         let cycleView = RecommandCycleView.recommanCycleView()
-        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
-        
+        cycleView.frame = CGRect(x: 0, y: -(kCycleViewH + kGameViewH), width: kScreenW, height: kCycleViewH)
         return cycleView
-        
+    }()
+    
+    /// 游戏推荐视图
+    private lazy var gameView : RecommandGameView = {
+        let gameView = RecommandGameView.recommanGameView()
+        gameView.frame = CGRect(x: 0, y: -kGameViewH, width: kScreenW, height: kGameViewH)
+        return gameView
     }()
     
     
@@ -72,19 +79,19 @@ class RecommandVC: UIViewController {
     // MARK: -设置UI
     private func setupUI() {
         view.addSubview(collectionView)
-        
+        // 添加滚动视图到collectionView
         collectionView.addSubview(cycleView)
         
+        // 添加游戏推荐视图到collectionView
+        collectionView.addSubview(gameView)
+        
         // 设置contentInset  显示cycleView
-        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
     }
     private func loadData(){
         // 轮播数据
         recommandViewModel.requestCycleData(finshCallBack: {
-        
-            
             if self.recommandViewModel.cycleModel.count > 0 {
-                
                 self.cycleView.cycleModels = self.recommandViewModel.cycleModel
             }else {
                 // 设置contentInset  隐藏cycleView

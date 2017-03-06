@@ -36,6 +36,7 @@ class RecommandCycleView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // 设置不随父控件拉伸  这里是通过操作xib实现的 还有一种方式直接通过代码  如：RecommandGameView.swift中awakeFromNib  autoresizingMask = .init(rawValue: 0)
         
         // 注册cell
         collectionView.register(UINib(nibName: "CycleCell", bundle: nil), forCellWithReuseIdentifier: kCycleViewCellID)
@@ -57,16 +58,21 @@ class RecommandCycleView: UIView {
 
 // MARK: - 定时器相关方法
 private extension RecommandCycleView {
+    
+    /// 添加定时器
     func addTimer() {
         timer = Timer(timeInterval: 3.0, target: self, selector: #selector(scrollToNext), userInfo: nil, repeats: true)
         
         RunLoop.main.add(timer!, forMode: .commonModes)
     }
     
+    /// 移除定时器
     func removeTimer() {
         timer?.invalidate()
         timer = nil
     }
+    
+    /// 滚动到下一个
     @objc func scrollToNext() {
         // 立即回到中间组的数据
         let currentIndexPathReset = resetIndexPath()
@@ -84,6 +90,7 @@ private extension RecommandCycleView {
         collectionView.scrollToItem(at: nextIndexPath, at: .left, animated: true)
     }
     
+    /// 重置indexPath
     func resetIndexPath() -> IndexPath {
         // 当前展示的位置
         let currentIndexPath = collectionView.indexPathsForVisibleItems.last
@@ -94,7 +101,6 @@ private extension RecommandCycleView {
         
         return currentIndexPathReset
     }
-    
     
 }
 
@@ -133,6 +139,8 @@ extension RecommandCycleView : UICollectionViewDelegate {
     }
 }
 
+
+// MARK: - 返回RecommandCycleView
 extension RecommandCycleView {
     class func recommanCycleView() -> RecommandCycleView {
         return Bundle.main.loadNibNamed("RecommandCycleView", owner: nil, options: nil)?.first as! RecommandCycleView
