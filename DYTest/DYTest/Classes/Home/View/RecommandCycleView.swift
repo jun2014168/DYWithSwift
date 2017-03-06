@@ -8,6 +8,7 @@
 
 import UIKit
 
+private let KMaxSections = 10
 private let kCycleViewCellID = "kCycleViewCellID"
 
 class RecommandCycleView: UIView {
@@ -22,7 +23,7 @@ class RecommandCycleView: UIView {
             // 设置pageControl 页数
             pageControl.numberOfPages = cycleModels?.count ?? 0
             
-            let indexPath = IndexPath(item: (cycleModels?.count ?? 0) * 10, section: 0)
+            let indexPath = IndexPath(item: 0, section: KMaxSections / 2)
             collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
             
             // 添加定时器前 先移除
@@ -67,25 +68,51 @@ private extension RecommandCycleView {
         timer = nil
     }
     @objc func scrollToNext() {
-        let currentOffsetX = collectionView.contentOffset.x
-        let offsetX = currentOffsetX + collectionView.bounds.width
+        // 立即回到中间组的数据
+        let currentIndexPathReset = resetIndexPath()
         
-        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
+        // 计算下一个需要展示的位置
+        var nextItem = currentIndexPathReset.item + 1
+        var nextSection = currentIndexPathReset.section
+        if nextItem == cycleModels?.count {
+            nextItem = 0
+            nextSection = nextSection + 1
+        }
+        
+        let nextIndexPath = IndexPath(item: nextItem, section: nextSection)
+        
+        collectionView.scrollToItem(at: nextIndexPath, at: .left, animated: true)
     }
+    
+    func resetIndexPath() -> IndexPath {
+        // 当前展示的位置
+        let currentIndexPath = collectionView.indexPathsForVisibleItems.last
+        // 马上回到最中间的那组数据
+        let currentIndexPathReset = IndexPath(item: (currentIndexPath?.item)!, section: KMaxSections / 2)
+        
+        collectionView.scrollToItem(at: currentIndexPathReset, at: .left, animated: false)
+        
+        return currentIndexPathReset
+    }
+    
     
 }
 
 extension RecommandCycleView: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return KMaxSections
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (cycleModels?.count ?? 0) * 1000
+        return cycleModels?.count ?? 0
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCycleViewCellID, for: indexPath) as! CycleCell
         
-        cell.cycleModel = cycleModels?[indexPath.item % cycleModels!.count]
+        cell.cycleModel = cycleModels?[indexPath.item]
         return cell
     }
 }
