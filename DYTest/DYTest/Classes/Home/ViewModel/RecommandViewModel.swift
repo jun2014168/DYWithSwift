@@ -13,6 +13,8 @@ class RecommandViewModel {
     // 轮播数据
     lazy var cycleModel : [CycleModel] = [CycleModel]()
     
+    // 游戏推荐数据
+    lazy var gameModel : [GameModel] = [GameModel]()
     
     /// 0 1 2-12组数据
     lazy var anchroGroup : [AnchroGroup] = [AnchroGroup]()
@@ -24,7 +26,7 @@ class RecommandViewModel {
 extension RecommandViewModel {
     func requestData(finshCallBack : @escaping ()->()) {
         /// 请求参数
-        let parameters = ["limit":"3","time":NSDate.getCurrentTime(),"offset":"0"]
+        let parameters = ["limit":"6","time":NSDate.getCurrentTime(),"offset":"0"]
         
         // 创建异步组  为了保证数据的正确排序
         let dgroup = DispatchGroup()
@@ -124,5 +126,25 @@ extension RecommandViewModel {
             finshCallBack()
         })
 
+    }
+    // 请求游戏推荐数据
+    func requestGameData(finshCallBack : @escaping ()->()) {
+        NetworkTool.requestData(type: .GET, url: "http://capi.douyucdn.cn/api/v1/game", parameters: ["version":"2.4"], finishedCallback: {
+            (result) in
+            
+            // 将result 转成字典模型
+            guard let resultDict = result as? [String : NSObject] else {return}
+            
+            // 根据data的key 获取数组
+            guard let dataArr = resultDict["data"] as? [[String : NSObject]] else {return}
+            
+            // 遍历数组
+            for dict in dataArr {
+                self.gameModel.append(GameModel(dict: dict))
+            }
+            
+            finshCallBack()
+        })
+        
     }
 }

@@ -45,6 +45,9 @@
 		7BED30491E6DA72D00A4EBF8 /* RecommandGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BED30481E6DA72D00A4EBF8 /* RecommandGameView.swift */; };
 		7BED304B1E6DA75900A4EBF8 /* RecommandGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BED304A1E6DA75900A4EBF8 /* RecommandGameView.xib */; };
 		B67AA10FB29F907CA504273B /* Pods_DYTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B63B6C476A17C5D14A3887 /* Pods_DYTest.framework */; };
+		F78D252D1E6E4A0F00E000F4 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D252B1E6E4A0F00E000F4 /* GameCell.swift */; };
+		F78D252E1E6E4A0F00E000F4 /* GameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F78D252C1E6E4A0F00E000F4 /* GameCell.xib */; };
+		F78D25301E6E4E3F00E000F4 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D252F1E6E4E3F00E000F4 /* GameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +92,9 @@
 		7BED30451E6C442700A4EBF8 /* CycleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CycleCell.xib; sourceTree = "<group>"; };
 		7BED30481E6DA72D00A4EBF8 /* RecommandGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommandGameView.swift; sourceTree = "<group>"; };
 		7BED304A1E6DA75900A4EBF8 /* RecommandGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommandGameView.xib; sourceTree = "<group>"; };
+		F78D252B1E6E4A0F00E000F4 /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		F78D252C1E6E4A0F00E000F4 /* GameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCell.xib; sourceTree = "<group>"; };
+		F78D252F1E6E4E3F00E000F4 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		F88325063ABE28390AC49A0F /* Pods-DYTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYTest/Pods-DYTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				7BED30421E6C37EF00A4EBF8 /* CycleModel.swift */,
+				F78D252F1E6E4E3F00E000F4 /* GameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,6 +231,8 @@
 				7BED30451E6C442700A4EBF8 /* CycleCell.xib */,
 				7BED30481E6DA72D00A4EBF8 /* RecommandGameView.swift */,
 				7BED304A1E6DA75900A4EBF8 /* RecommandGameView.xib */,
+				F78D252B1E6E4A0F00E000F4 /* GameCell.swift */,
+				F78D252C1E6E4A0F00E000F4 /* GameCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -430,6 +439,7 @@
 				7B6032EF1E62A8F300EF76AB /* Profile.storyboard in Resources */,
 				7B6033231E6474AB00EF76AB /* CollectionHeaderView.xib in Resources */,
 				7B6032F21E62A90400EF76AB /* Mine.storyboard in Resources */,
+				F78D252E1E6E4A0F00E000F4 /* GameCell.xib in Resources */,
 				7B6032EC1E62A8D700EF76AB /* Live.storyboard in Resources */,
 				7B60332F1E65BE8E00EF76AB /* CollectionPrettyCell.xib in Resources */,
 				7BED304B1E6DA75900A4EBF8 /* RecommandGameView.xib in Resources */,
@@ -508,10 +518,12 @@
 				7BED303F1E6BACB500A4EBF8 /* RecommandCycleView.swift in Sources */,
 				7B1FFB141E684C33001E68D9 /* NSDate-Extension.swift in Sources */,
 				7B6033221E6474AB00EF76AB /* CollectionHeaderView.swift in Sources */,
+				F78D252D1E6E4A0F00E000F4 /* GameCell.swift in Sources */,
 				7BED303D1E6B222200A4EBF8 /* CollectionBaseCell.swift in Sources */,
 				7B1FFB181E68540C001E68D9 /* AnchroModel.swift in Sources */,
 				7B6033731E67152B00EF76AB /* NetworkTool.swift in Sources */,
 				7BE63B7B1E226F8B006B68D8 /* AppDelegate.swift in Sources */,
+				F78D25301E6E4E3F00E000F4 /* GameModel.swift in Sources */,
 				7B6033171E62C2D100EF76AB /* PageTitleView.swift in Sources */,
 				7B60330D1E62BD9B00EF76AB /* MainViewController.swift in Sources */,
 				7B1FFB161E684FB5001E68D9 /* AnchroGroup.swift in Sources */,

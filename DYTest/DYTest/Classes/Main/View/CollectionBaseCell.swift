@@ -20,10 +20,9 @@ class CollectionBaseCell: UICollectionViewCell {
             guard let anchro = anchro else { return }
             
             titleL.text = anchro.room_name
-            
-            anchroImageView.kf.setImage(with: URL(string: anchro.vertical_src))
-            
             onlineBtn.setTitle("\(anchro.online)", for: .normal)
+            guard let url = URL(string: anchro.vertical_src) else { return  }
+            anchroImageView.kf.setImage(with: url)
         }
         
     }
