@@ -91,12 +91,11 @@ class RecommandVC: UIViewController {
     private func loadData(){
         // 轮播数据
         recommandViewModel.requestCycleData(finshCallBack: {
-            if self.recommandViewModel.cycleModel.count > 0 {
-                self.cycleView.cycleModels = self.recommandViewModel.cycleModel
-            }else {
-                // 设置contentInset  隐藏cycleView
-                self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            }
+            self.cycleView.cycleModels = self.recommandViewModel.cycleModel
+        })
+        // 游戏推荐数据
+        recommandViewModel.requestGameData(finshCallBack: {
+            self.gameView.gameModels = self.recommandViewModel.gameModel
         })
         
         recommandViewModel.requestData { 
