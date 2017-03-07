@@ -23,6 +23,7 @@ class AnchroGroup: NSObject {
     var tag_name : String = ""
     /// 组图标
     var icon_name : String = "home_header_normal"
+    var icon_url : String = ""
     
     // 主播模型数组
     lazy var anchros : [AnchroModel] = [AnchroModel]()

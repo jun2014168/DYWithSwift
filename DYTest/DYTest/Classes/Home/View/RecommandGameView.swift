@@ -9,12 +9,21 @@
 import UIKit
 
 private let kGameCell = "kGameCell"
+private let kMargin : CGFloat = 10
+
 class RecommandGameView: UIView {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var gameModels : [GameModel]?{
+    var gameModels : [AnchroGroup]?{
         didSet{
+            gameModels?.removeFirst()
+            gameModels?.removeFirst()
+            
+            let gameModel : AnchroGroup = AnchroGroup()
+            gameModel.tag_name = "更多"
+            gameModels?.append(gameModel)
+            
             // 刷新collectionView
             collectionView.reloadData()
             
@@ -29,6 +38,9 @@ class RecommandGameView: UIView {
         // 注册cell
         collectionView.register(UINib(nibName: "GameCell", bundle: nil), forCellWithReuseIdentifier: kGameCell)
         collectionView.dataSource = self;
+        
+        // 设置collectionview内编剧
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: kMargin, bottom: 0, right: kMargin)
     }
 
 }
@@ -36,7 +48,7 @@ class RecommandGameView: UIView {
 // MARK: - UICollectionViewDataSource
 extension RecommandGameView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return gameModels?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

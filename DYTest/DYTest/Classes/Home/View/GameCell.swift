@@ -13,12 +13,12 @@ class GameCell: UICollectionViewCell {
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var titleL: UILabel!
     
-    var gameModel : GameModel? {
+    var gameModel : AnchroGroup? {
         didSet{
             
             guard let gameModel = gameModel else { return }
-            titleL.text = gameModel.game_name
-            guard let url = URL(string: gameModel.game_src) else { return  }
+            titleL.text = gameModel.tag_name
+            guard let url = URL(string: gameModel.icon_url) else { return  }
             iconView.kf.setImage(with: url)
             
         }

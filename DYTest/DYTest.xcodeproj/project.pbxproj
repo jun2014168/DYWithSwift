@@ -47,7 +47,6 @@
 		B67AA10FB29F907CA504273B /* Pods_DYTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B63B6C476A17C5D14A3887 /* Pods_DYTest.framework */; };
 		F78D252D1E6E4A0F00E000F4 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D252B1E6E4A0F00E000F4 /* GameCell.swift */; };
 		F78D252E1E6E4A0F00E000F4 /* GameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F78D252C1E6E4A0F00E000F4 /* GameCell.xib */; };
-		F78D25301E6E4E3F00E000F4 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D252F1E6E4E3F00E000F4 /* GameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,7 +93,6 @@
 		7BED304A1E6DA75900A4EBF8 /* RecommandGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommandGameView.xib; sourceTree = "<group>"; };
 		F78D252B1E6E4A0F00E000F4 /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		F78D252C1E6E4A0F00E000F4 /* GameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCell.xib; sourceTree = "<group>"; };
-		F78D252F1E6E4E3F00E000F4 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		F88325063ABE28390AC49A0F /* Pods-DYTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYTest/Pods-DYTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				7BED30421E6C37EF00A4EBF8 /* CycleModel.swift */,
-				F78D252F1E6E4E3F00E000F4 /* GameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -523,7 +520,6 @@
 				7B1FFB181E68540C001E68D9 /* AnchroModel.swift in Sources */,
 				7B6033731E67152B00EF76AB /* NetworkTool.swift in Sources */,
 				7BE63B7B1E226F8B006B68D8 /* AppDelegate.swift in Sources */,
-				F78D25301E6E4E3F00E000F4 /* GameModel.swift in Sources */,
 				7B6033171E62C2D100EF76AB /* PageTitleView.swift in Sources */,
 				7B60330D1E62BD9B00EF76AB /* MainViewController.swift in Sources */,
 				7B1FFB161E684FB5001E68D9 /* AnchroGroup.swift in Sources */,

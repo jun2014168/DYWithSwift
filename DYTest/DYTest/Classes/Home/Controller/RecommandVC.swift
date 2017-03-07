@@ -93,12 +93,9 @@ class RecommandVC: UIViewController {
         recommandViewModel.requestCycleData(finshCallBack: {
             self.cycleView.cycleModels = self.recommandViewModel.cycleModel
         })
-        // 游戏推荐数据
-        recommandViewModel.requestGameData(finshCallBack: {
-            self.gameView.gameModels = self.recommandViewModel.gameModel
-        })
         
-        recommandViewModel.requestData { 
+        recommandViewModel.requestData {
+            self.gameView.gameModels = self.recommandViewModel.anchroGroup
             self.collectionView.reloadData()
         }
     }
