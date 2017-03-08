@@ -29,6 +29,14 @@ class RecommandGameView: UIView {
             
         }
     }
+    var gameM : [GameModel]?{
+        didSet{
+            
+            // 刷新collectionView
+            collectionView.reloadData()
+            
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

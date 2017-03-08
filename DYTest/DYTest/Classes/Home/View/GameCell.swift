@@ -17,7 +17,10 @@ class GameCell: UICollectionViewCell {
         didSet{
             guard let gameModel = gameModel else { return }
             titleL.text = gameModel.tag_name
-            guard let url = URL(string: gameModel.icon_url) else { return  }
+            guard let url = URL(string: gameModel.icon_url) else {
+                iconView.image = UIImage(named: "home_more_btn")
+                return
+            }
             iconView.kf.setImage(with: url)
             
         }

@@ -14,6 +14,7 @@ class CollectionHeaderView: UICollectionReusableView {
     
     @IBOutlet weak var groupName: UILabel!
     
+    @IBOutlet weak var moreBtn: UIButton!
     
     var group : AnchroGroup? {
         didSet{
@@ -38,4 +39,11 @@ class CollectionHeaderView: UICollectionReusableView {
         
     }
     
+}
+
+// MARK: - 从xib 快速加载
+extension CollectionHeaderView {
+    class func headerView() -> CollectionHeaderView {
+        return Bundle.main.loadNibNamed("CollectionHeaderView", owner: nil, options: nil)?.first as! CollectionHeaderView
+    }
 }
