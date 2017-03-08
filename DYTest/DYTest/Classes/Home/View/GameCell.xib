@@ -40,9 +40,9 @@
             <constraints>
                 <constraint firstItem="T2c-DF-pej" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="IpS-O1-cVs"/>
                 <constraint firstItem="mFb-lD-dt0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KBp-ou-E7Y"/>
+                <constraint firstItem="mFb-lD-dt0" firstAttribute="top" secondItem="T2c-DF-pej" secondAttribute="bottom" constant="10" id="Tzp-gm-oVT"/>
                 <constraint firstAttribute="trailing" secondItem="mFb-lD-dt0" secondAttribute="trailing" id="tM4-Gy-AgO"/>
                 <constraint firstAttribute="bottom" secondItem="mFb-lD-dt0" secondAttribute="bottom" id="wKl-Qf-Mye"/>
-                <constraint firstItem="T2c-DF-pej" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="ygO-lX-agF"/>
             </constraints>
             <size key="customSize" width="96" height="91"/>
             <connections>
