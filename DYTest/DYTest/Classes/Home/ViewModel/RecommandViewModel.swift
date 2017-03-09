@@ -8,13 +8,12 @@
 
 import UIKit
 
-class RecommandViewModel {
+class RecommandViewModel : BaseViewModel{
     
     // 轮播数据
     lazy var cycleModel : [CycleModel] = [CycleModel]()
     
     /// 0 1 2-12组数据
-    lazy var anchroGroup : [AnchroGroup] = [AnchroGroup]()
     var prettyData : AnchroGroup = AnchroGroup()
     var bigData : AnchroGroup = AnchroGroup()
     
@@ -70,29 +69,14 @@ extension RecommandViewModel {
             }
             // 离开组
             dgroup.leave()
-        
         })
-        
         
         dgroup.enter()
         // 第三部分数据
-        NetworkTool.requestData(type: .GET, url: "https://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters, finishedCallback: {
-            (result) in
-            // 将result 转成字典模型
-            guard let resultDict = result as? [String : NSObject] else {return}
-            
-            // 根据data的key 获取数组
-            guard let dataArr = resultDict["data"] as? [[String : NSObject]] else {return}
-            
-            // 遍历数组
-            for dict in dataArr {
-                let group = AnchroGroup(dict: dict)
-                self.anchroGroup.append(group)
-            }
+        requestAnchroData(url: "https://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) {
             // 离开组
             dgroup.leave()
-        })
-        
+        }
         
         // 排序
         dgroup.notify(queue: .main) { 

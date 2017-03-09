@@ -15,21 +15,7 @@ class RecommandGameView: UIView {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var gameModels : [AnchroGroup]?{
-        didSet{
-            gameModels?.removeFirst()
-            gameModels?.removeFirst()
-            
-            let gameModel : AnchroGroup = AnchroGroup()
-            gameModel.tag_name = "更多"
-            gameModels?.append(gameModel)
-            
-            // 刷新collectionView
-            collectionView.reloadData()
-            
-        }
-    }
-    var gameM : [GameModel]?{
+    var gameModels : [BaseGameModel]?{
         didSet{
             
             // 刷新collectionView

@@ -13,7 +13,7 @@ class GameCell: UICollectionViewCell {
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var titleL: UILabel!
     
-    var gameModel : AnchroGroup? {
+    var gameModel : BaseGameModel? {
         didSet{
             guard let gameModel = gameModel else { return }
             titleL.text = gameModel.tag_name
@@ -26,15 +26,6 @@ class GameCell: UICollectionViewCell {
         }
     }
 
-    var gamesModel : GameModel? {
-        didSet{
-            guard let gamesModel = gamesModel else { return }
-            titleL.text = gamesModel.tag_name
-            guard let url = URL(string: gamesModel.pic_url) else { return  }
-            iconView.kf.setImage(with: url)
-            
-        }
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

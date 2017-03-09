@@ -89,7 +89,7 @@ extension GameViewController{
         gameViewModel.requestGamesData {
             self.collectionView.reloadData()
             
-            self.gameView.gameM = Array(self.gameViewModel.gameModel[0..<10])
+            self.gameView.gameModels = Array(self.gameViewModel.gameModel[0..<10])
             
         }
     }
@@ -103,7 +103,7 @@ extension GameViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kGameViewCellID, for: indexPath) as! GameCell
         
-        cell.gamesModel = gameViewModel.gameModel[indexPath.item]
+        cell.gameModel = gameViewModel.gameModel[indexPath.item]
         return cell
     }
     

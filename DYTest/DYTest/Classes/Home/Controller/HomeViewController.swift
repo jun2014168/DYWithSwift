@@ -29,7 +29,8 @@ class HomeViewController: UIViewController,PageTitleViewDelegate,PageContentView
         var childVC = [UIViewController]()
         childVC.append(RecommandVC())
         childVC.append(GameViewController())
-        for _ in 0..<2
+        childVC.append(AmuseViewController())
+        for _ in 0..<1
         {
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
