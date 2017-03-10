@@ -30,14 +30,9 @@ class HomeViewController: UIViewController,PageTitleViewDelegate,PageContentView
         childVC.append(RecommandVC())
         childVC.append(GameViewController())
         childVC.append(AmuseViewController())
-        for _ in 0..<1
-        {
-            let vc = UIViewController()
-            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
-            
-            childVC.append(vc)
-            
-        }
+        childVC.append(FunnyViewController())
+        
+        
         let contentView = PageContentView(frame: frame, childVC: childVC, parentVC: self!)
         contentView.delegate = self
         return contentView

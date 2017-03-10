@@ -19,7 +19,7 @@ class BaseGameModel: NSObject {
     }
     
     // 利用kvc字典转模型
-    init(dict:[String : NSObject]) {
+    init(dict:[String : Any]) {
         super.init()
         setValuesForKeys(dict)
     }

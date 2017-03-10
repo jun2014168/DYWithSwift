@@ -17,6 +17,6 @@ extension AmuseViewModel {
     
     func requestAmuseData(finishCallBack : @escaping ()->()){
         
-        requestAnchroData(url: "https://capi.douyucdn.cn/api/v1/getHotRoom/2", finishCallBack: finishCallBack)
+        requestAnchroData(isGroup: true,url: "https://capi.douyucdn.cn/api/v1/getHotRoom/2", finishCallBack: finishCallBack)
     }
 }

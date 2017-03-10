@@ -67,6 +67,9 @@ class RecommandVC: BaseAnchroViewController {
             self.gameView.gameModels = group
             
             self.collectionView.reloadData()
+            
+            // 数据加载完成
+            self.loadDataFinish()
         }
     }
 

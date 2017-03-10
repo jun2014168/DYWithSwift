@@ -73,7 +73,7 @@ extension RecommandViewModel {
         
         dgroup.enter()
         // 第三部分数据
-        requestAnchroData(url: "https://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) {
+        requestAnchroData(isGroup: true,url: "https://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) {
             // 离开组
             dgroup.leave()
         }

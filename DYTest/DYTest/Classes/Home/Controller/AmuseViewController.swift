@@ -48,6 +48,9 @@ extension AmuseViewController {
             self.amuseMenuView.anchroGroup = tempGroup
             
             self.collectionView.reloadData()
+            
+            // 数据加载完成
+            self.loadDataFinish()
         }
     }
     

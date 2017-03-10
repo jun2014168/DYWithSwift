@@ -19,7 +19,7 @@ let kNormalItemW : CGFloat = (kScreenW - 3 * kItemMargin) / 2
 let kNormalItemH : CGFloat = kNormalItemW * 3 / 4
 let kPrettyItemH : CGFloat = kNormalItemW * 4 / 3
 
-class BaseAnchroViewController: UIViewController {
+class BaseAnchroViewController: BaseViewController {
 
     var baseVM : BaseViewModel!
     
@@ -51,17 +51,19 @@ class BaseAnchroViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
+    
         loadData()
 
     }
 
 }
 extension BaseAnchroViewController {
-    func setupUI() {
+    override func setupUI() {
+        contentView = collectionView
+        
         view.addSubview(self.collectionView)
         
+        super.setupUI()
     }
     // 让子类加载自己的数据
     func loadData(){

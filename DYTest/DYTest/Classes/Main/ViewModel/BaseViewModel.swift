@@ -14,7 +14,7 @@ class BaseViewModel {
 }
 extension BaseViewModel {
     
-    func requestAnchroData(url : String,  parameters : [String : Any]?=nil,finishCallBack : @escaping ()->()){
+    func requestAnchroData(isGroup : Bool, url : String,  parameters : [String : Any]?=nil,finishCallBack : @escaping ()->()){
         
         NetworkTool.requestData(type: .GET, url: url ,parameters: parameters) { (result) in
             
@@ -24,10 +24,22 @@ extension BaseViewModel {
             // 根据data的key 获取数组
             guard let dataArr = resultDict["data"] as? [[String : NSObject]] else {return}
             
-            // 遍历数组
-            for dict in dataArr {
-                self.anchroGroup.append(AnchroGroup(dict: dict))
+            if isGroup {
+                // 遍历数组
+                for dict in dataArr {
+                    self.anchroGroup.append(AnchroGroup(dict: dict))
+                }
+
+            }else {
+                let group = AnchroGroup()
+                // 遍历数组
+                for dict in dataArr {
+                    group.anchros.append(AnchroModel(dict: dict))
+                }
+
+                self.anchroGroup.append(group)
             }
+            
             
             finishCallBack()
         }
