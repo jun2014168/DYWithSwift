@@ -7,11 +7,18 @@
 //
 
 import UIKit
+private let kMenuViewH : CGFloat = 200
 
 class AmuseViewController: BaseAnchroViewController {
     
     fileprivate lazy var amuseViewModel : AmuseViewModel = AmuseViewModel()
     
+    fileprivate lazy var amuseMenuView : AmuseMenuView = {
+        let menuView = AmuseMenuView.amuseMenuView()
+        menuView.frame = CGRect(x: 0, y: -kMenuViewH, width: kScreenW, height: kMenuViewH)
+        return menuView
+        
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +28,25 @@ class AmuseViewController: BaseAnchroViewController {
 
 extension AmuseViewController {
     // 重写父类方法
+    override func setupUI() {
+        super.setupUI()
+        
+        collectionView.addSubview(amuseMenuView)
+        
+        collectionView.contentInset = UIEdgeInsets(top: kMenuViewH, left: 0, bottom: 0, right: 0)
+    }
+    
+    
     override func loadData(){
         // 给父类baseVM赋值
         baseVM = amuseViewModel
         // 请求数据
         amuseViewModel.requestAmuseData {
+            
+            var tempGroup = self.amuseViewModel.anchroGroup
+            tempGroup.removeFirst()
+            self.amuseMenuView.anchroGroup = tempGroup
+            
             self.collectionView.reloadData()
         }
     }
