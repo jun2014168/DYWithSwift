@@ -26,6 +26,9 @@
 		7B3E9B031E72EBF5005076D4 /* FunnyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E9B021E72EBF5005076D4 /* FunnyViewController.swift */; };
 		7B3E9B051E72EC48005076D4 /* FunnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E9B041E72EC48005076D4 /* FunnyViewModel.swift */; };
 		7B3E9B071E72F4D4005076D4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E9B061E72F4D4005076D4 /* BaseViewController.swift */; };
+		7B3E9B0D1E730242005076D4 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E9B0C1E730242005076D4 /* RoomViewController.swift */; };
+		7B3E9B0F1E73F989005076D4 /* RoomShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E9B0E1E73F989005076D4 /* RoomShowViewController.swift */; };
+		7B3E9B111E73FB9B005076D4 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E9B101E73FB9B005076D4 /* CustomNavigationController.swift */; };
 		7B6032E91E62A89700EF76AB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6032E71E62A89700EF76AB /* Home.storyboard */; };
 		7B6032EC1E62A8D700EF76AB /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6032EA1E62A8D700EF76AB /* Live.storyboard */; };
 		7B6032EF1E62A8F300EF76AB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6032ED1E62A8F300EF76AB /* Profile.storyboard */; };
@@ -86,6 +89,9 @@
 		7B3E9B021E72EBF5005076D4 /* FunnyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnyViewController.swift; sourceTree = "<group>"; };
 		7B3E9B041E72EC48005076D4 /* FunnyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnyViewModel.swift; sourceTree = "<group>"; };
 		7B3E9B061E72F4D4005076D4 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7B3E9B0C1E730242005076D4 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		7B3E9B0E1E73F989005076D4 /* RoomShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomShowViewController.swift; sourceTree = "<group>"; };
+		7B3E9B101E73FB9B005076D4 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		7B6032E81E62A89700EF76AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DYTest/Base.lproj/Home.storyboard; sourceTree = SOURCE_ROOT; };
 		7B6032EB1E62A8D700EF76AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DYTest/Base.lproj/Live.storyboard; sourceTree = SOURCE_ROOT; };
 		7B6032EE1E62A8F300EF76AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DYTest/Base.lproj/Profile.storyboard; sourceTree = SOURCE_ROOT; };
@@ -165,11 +171,45 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7B3E9B081E730234005076D4 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				7B3E9B091E730234005076D4 /* Controller */,
+				7B3E9B0A1E730234005076D4 /* Model */,
+				7B3E9B0B1E730234005076D4 /* View */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		7B3E9B091E730234005076D4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B3E9B0C1E730242005076D4 /* RoomViewController.swift */,
+				7B3E9B0E1E73F989005076D4 /* RoomShowViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B3E9B0A1E730234005076D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B3E9B0B1E730234005076D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7B6032E01E629B5E00EF76AB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				7B6032E61E629BB500EF76AB /* Main */,
 				7B6032E11E629B5E00EF76AB /* Home */,
+				7B3E9B081E730234005076D4 /* Room */,
 				7B6032E21E629B5E00EF76AB /* Live */,
 				7B6032E41E629B5E00EF76AB /* Profile */,
 				7B6032E31E629B5E00EF76AB /* Mine */,
@@ -314,6 +354,7 @@
 				7B60330A1E62BD9B00EF76AB /* MainViewController.swift */,
 				7B3E9B061E72F4D4005076D4 /* BaseViewController.swift */,
 				7B3E9AF81E719745005076D4 /* BaseAnchroViewController.swift */,
+				7B3E9B101E73FB9B005076D4 /* CustomNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -561,6 +602,7 @@
 				7BED30491E6DA72D00A4EBF8 /* RecommandGameView.swift in Sources */,
 				7B6033031E62BD1800EF76AB /* HomeViewController.swift in Sources */,
 				7B60332E1E65BE8E00EF76AB /* CollectionPrettyCell.swift in Sources */,
+				7B3E9B111E73FB9B005076D4 /* CustomNavigationController.swift in Sources */,
 				7B60331F1E646B7D00EF76AB /* RecommandVC.swift in Sources */,
 				7B60332A1E65B8C200EF76AB /* CollectionNormalCell.swift in Sources */,
 				7B60331B1E6300AB00EF76AB /* PageContentView.swift in Sources */,
@@ -577,7 +619,9 @@
 				7B6033221E6474AB00EF76AB /* CollectionHeaderView.swift in Sources */,
 				F78D252D1E6E4A0F00E000F4 /* GameCell.swift in Sources */,
 				7BED303D1E6B222200A4EBF8 /* CollectionBaseCell.swift in Sources */,
+				7B3E9B0F1E73F989005076D4 /* RoomShowViewController.swift in Sources */,
 				7B3E9AF41E718C80005076D4 /* BaseGameModel.swift in Sources */,
+				7B3E9B0D1E730242005076D4 /* RoomViewController.swift in Sources */,
 				7B3E9B051E72EC48005076D4 /* FunnyViewModel.swift in Sources */,
 				7B3E9B001E72D352005076D4 /* AmuseMenuCell.swift in Sources */,
 				7B1FFB181E68540C001E68D9 /* AnchroModel.swift in Sources */,

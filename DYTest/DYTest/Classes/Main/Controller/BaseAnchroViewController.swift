@@ -110,5 +110,23 @@ extension BaseAnchroViewController : UICollectionViewDataSource {
 extension BaseAnchroViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        // 取出anchro
+        let group = baseVM.anchroGroup[indexPath.section]
+        let anchro = group.anchros[indexPath.item]
+        
+        anchro.isVertical == 0 ? pushNormalRoom() : presentShowRoom()
+        
+    }
+    
+    private func presentShowRoom() {
+        let showRoomVC = RoomShowViewController()
+        
+        present(showRoomVC, animated: true, completion: nil)
+    }
+    private func pushNormalRoom() {
+        let normalRoomVC = RoomViewController()
+        
+        normalRoomVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(normalRoomVC, animated: true)
     }
 }
