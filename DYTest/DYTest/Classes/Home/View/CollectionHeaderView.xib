@@ -61,6 +61,7 @@
             <connections>
                 <outlet property="groupIcon" destination="WUV-5y-Hvw" id="0IO-rY-kSg"/>
                 <outlet property="groupName" destination="aCY-xC-M0J" id="4SS-yA-Tbe"/>
+                <outlet property="moreBtn" destination="NQ4-xe-OPa" id="OzH-fO-ZrJ"/>
             </connections>
         </collectionReusableView>
     </objects>
