@@ -18,7 +18,9 @@ class CollectionPrettyCell: CollectionBaseCell {
     override var anchro : AnchroModel? {
         didSet{
             super.anchro = anchro
-            cityL.text = anchro?.anchor_city
+            guard let anchro = anchro else { return  }
+            cityL.text = anchro.anchor_city
+            onlineBtn.setTitle("  \(anchro.online)人在线  ", for: .normal)
         }
         
     }

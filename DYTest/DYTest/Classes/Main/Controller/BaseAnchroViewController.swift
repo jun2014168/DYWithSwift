@@ -114,18 +114,18 @@ extension BaseAnchroViewController : UICollectionViewDelegate {
         let group = baseVM.anchroGroup[indexPath.section]
         let anchro = group.anchros[indexPath.item]
         
-        anchro.isVertical == 0 ? pushNormalRoom() : presentShowRoom()
+        anchro.isVertical == 0 ? pushNormalRoom(anchro:anchro) : presentShowRoom(anchro:anchro)
         
     }
     
-    private func presentShowRoom() {
+    private func presentShowRoom(anchro: AnchroModel) {
         let showRoomVC = RoomShowViewController()
-        
+        showRoomVC.anchor = anchro
         present(showRoomVC, animated: true, completion: nil)
     }
-    private func pushNormalRoom() {
+    private func pushNormalRoom(anchro: AnchroModel) {
         let normalRoomVC = RoomViewController()
-        
+        normalRoomVC.anchro = anchro
         normalRoomVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(normalRoomVC, animated: true)
     }
